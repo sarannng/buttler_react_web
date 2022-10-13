@@ -1,0 +1,20 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.imgsize{
+    width: 200px;
+    height:  200px;
+}
+
+.center-props{
+        display: 'flex'; 
+        align-items: center;
+        justify-content: 'center';
+        height: '100vh';
+       
+}

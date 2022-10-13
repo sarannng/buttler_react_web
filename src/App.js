@@ -5,101 +5,53 @@ import Zoom from './zoom';
 import CardSkeleton from './component/SwipeScreenComponent/cardskeleton';
 import BrandExample from './component/Navbar/navbar';
 import ListTest from './component/SwipeScreenComponent/list-test';
+import Login from './digi_components/login';
+import {Route, Routes, Link,    BrowserRouter as Router} from 'react-router-dom';
+import AdminHome from './digi_components/admin_home';
+import Notfound from './digi_components/notfound';
+import Bigscreen from './digi_components/big-screen';
+import CallingOrders from './digi_components/calling-orders';
+
 
 function App() {
 
-   const  [valname, setval] = useState(0);
-     
-   
-  function increment(valname){
-    setval(valname+1);
-  }
-  
-  
-  function decrement(valname){
-    setval(valname - 1);
-  }
-
-
   return ( 
+  <Router>
 
     <div>
-    <BrandExample/>
-     {/* <CardSkeleton/> */}
-     <div className='mb-3'></div>
-     <ListTest/>
+      <ul>
+        <li>
+          <Link to = '/'>Login</Link>
+        </li>
 
-    </div>
- 
+        <li>
+          <Link to = '/adh'>Admin-Home</Link>
+        </li>
 
-      /* <div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 2
-    </div>
-    <div class="col">
-      2 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-</div>
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-         
-          <button className="minus" onClick={ () => decrement(valname)} > -</button>
-           {valname} 
-          <button className= "plus"  onClick={ () => increment(valname)}> +</button>
-           
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sarang
-        </a>
+        <li>
+          <Link to = '/adh/big-screen'>Bs</Link>
+        </li>
+      </ul>
 
 
-
-        <div> 
-          <Zoom valnameProp = {valname} incrementFun = {increment}  decrementFun = {decrement}  />
-        </div>
-      </header>
+      <Routes>
       
-      <div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 2
+      <Route path= '/'  exact element ={<Login/>}/>
+         
+      <Route path= 'adh'    element ={<AdminHome/>}>
+        <Route path = 'big-screen'  exact element= {<Bigscreen/>}/> 
+        <Route path = 'calling-orders' element= {<CallingOrders/>}/> 
+      </Route> 
+      
+      <Route path= '*'  exact element ={<Notfound/>}/>
+ 
+    </Routes>
     </div>
-    <div class="col">
-      2 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-</div> */ 
+    
 
     
+  </Router>
+ 
   );
 }
 
