@@ -1,10 +1,15 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { BrowserRouter, Link , Routes, Route} from "react-router-dom";
+import { BrowserRouter, Link , Routes, Route, useNavigate, Outlet} from "react-router-dom";
 import Bigscreen from "./big-screen";
 
-const AdminHome = (props) =>{
-    return(<>
+const AdminHome = ( ) =>{
+
+    const vvavigator =    () =>{
+        console.log("nav clickd");
+    }
+    return( 
+ 
        
 
         <div className="container">
@@ -18,12 +23,12 @@ const AdminHome = (props) =>{
             
             <div className="row">
                 <div className="col-6">
-                    <Link to={'big-screen'}> <Button type='button' className = 'btn btn-primary'>Bigscreen</Button></Link>
+                    <Link to={"big-screen"}> hi</Link>
                 </div>
 
                 
                 <div className="col-6">
-                    <Link to={'calling-orders'}><Button type='button' className = 'btn btn-secondary'>Update Menu</Button></Link>
+                    <Link to={'calling-orders'}><Button onClick={ vvavigator} type='button' className = 'btn btn-secondary'>Update Menu</Button></Link>
                 </div>
             </div>
 
@@ -31,12 +36,11 @@ const AdminHome = (props) =>{
             
             <div className="row">
                 Updates section
+                 
+                  <Outlet/>
             </div>
-
-            
-
         </div>
-        </>
+         
 
     );
 }

@@ -9,6 +9,7 @@ import {
   Link
 } from 'react-router-dom';
 import AdminHome from "./admin_home";
+import Notfound from "./notfound";
 
 function Login(){
 
@@ -88,6 +89,8 @@ function Login(){
     </div>
   </div> 
 
+              <div>Test</div>
+              <Notfound/>
   <Link to={'adh'}>
   <button type="button" class="btn btn-danger btn-block mb-4"  onClick=  {submitclicked }>Sign in</button>
   </Link>

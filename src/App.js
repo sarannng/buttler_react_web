@@ -16,6 +16,7 @@ import CallingOrders from './digi_components/calling-orders';
 function App() {
 
   return ( 
+    <>
   <Router>
 
     <div>
@@ -25,25 +26,35 @@ function App() {
         </li>
 
         <li>
-          <Link to = '/adh'>Admin-Home</Link>
+          <Link to = 'adh'>Admin-Home</Link>
         </li>
 
         <li>
-          <Link to = '/adh/big-screen'>Bs</Link>
+          <Link to = 'big-screen'>Bs</Link>
+        </li>
+
+        <li>
+        <Notfound/>
         </li>
       </ul>
 
+     
 
       <Routes>
       
       <Route path= '/'  exact element ={<Login/>}/>
-         
+      <Route path= 'big-screen'    element ={<Bigscreen/>}/>
       <Route path= 'adh'    element ={<AdminHome/>}>
-        <Route path = 'big-screen'  exact element= {<Bigscreen/>}/> 
+      
+        
+
+        <Route path = 'big-screen'    element= {<Bigscreen/>}/> 
         <Route path = 'calling-orders' element= {<CallingOrders/>}/> 
       </Route> 
       
-      <Route path= '*'  exact element ={<Notfound/>}/>
+      
+      <Route path= 'calling-orders'    element ={<CallingOrders/>}/>
+      <Route path= '*'  element ={<Notfound/>}/>
  
     </Routes>
     </div>
@@ -51,7 +62,7 @@ function App() {
 
     
   </Router>
- 
+  </>
   );
 }
 
