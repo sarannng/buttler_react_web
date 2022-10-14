@@ -11,7 +11,7 @@ import AdminHome from './digi_components/admin_home';
 import Notfound from './digi_components/notfound';
 import Bigscreen from './digi_components/big-screen';
 import CallingOrders from './digi_components/calling-orders';
-
+import Navbar from './component/Navbar/navbar';
 
 function App() {
 
@@ -20,13 +20,13 @@ function App() {
   <Router>
 
     <div>
-      <ul>
+      {/* <ul>
         <li>
           <Link to = '/'>Login</Link>
         </li>
 
         <li>
-          <Link to = 'adh'>Admin-Home</Link>
+          <Link to = '/adh'>Admin-Home</Link>
         </li>
 
         <li>
@@ -36,8 +36,9 @@ function App() {
         <li>
         <Notfound/>
         </li>
-      </ul>
+      </ul> */}
 
+      <Navbar/>
      
 
       <Routes>

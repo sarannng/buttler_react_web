@@ -4,10 +4,9 @@ import {Table, Button} from "react-bootstrap";
 import firebase_service from "../../Service/firebase_service";
 import {db} from  "../../Service/firebase-config";
 
-
-const  OrderCards = (props) => {
-
-      async function delet(id)  {
+const OrderPrepd = (props) => {
+    
+    async function delet(id)  {
         console.log("document deleted with id  " + id);
         await deleteDoc(doc(db, "order  ", id));
 
@@ -65,4 +64,5 @@ const  OrderCards = (props) => {
     );
 }
 
-export default OrderCards;
+
+export default OrderPrepd;

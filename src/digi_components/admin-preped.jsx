@@ -1,13 +1,12 @@
 import { deleteDoc, doc, collection} from "firebase/firestore";
 import React from "react";
 import {Table, Button} from "react-bootstrap";
-import firebase_service from "../../Service/firebase_service";
-import {db} from  "../../Service/firebase-config";
+import firebase_service from "../Service/firebase_service";
+import {db} from  "../Service/firebase-config";
 
-
-const  OrderCards = (props) => {
-
-      async function delet(id)  {
+const AdminPrepared = (props) =>{
+    
+    async function delet(id)  {
         console.log("document deleted with id  " + id);
         await deleteDoc(doc(db, "order  ", id));
 
@@ -19,16 +18,19 @@ const  OrderCards = (props) => {
          console.log("document deleted with id  " + id);
         }
     return (
-        <Table striped bordered hover size="sm">
+<>
+    
+    <div className="text-center mt-5">Order-preped</div>
+    <Table striped bordered hover size="sm">
             <thead>
               <tr>
                 <th>#</th>
-                {/* <th>Customer id</th> */}
+                <th>Customer id</th>
                 <th>Name</th>
                 {/* <th>Order Time</th> */}
                 <th>Token</th>
-                {/* <th>Total</th>
-                <th>Action</th> */}
+                {/* <th>Total</th> */}
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -38,14 +40,14 @@ const  OrderCards = (props) => {
                      <td>{index + 1}</td>
                     {/* <td>{doc.data.cid}</td> */}
                     <td className="tile">{doc.data.cname}</td>
-                    {/* <td>{doc.data.ordertime}</td> */}
-                    {/* <td>{doc.data.caddress}</td> */}
+                    <td>{doc.data.ordertime}</td>  
+                     {/* <td>{doc.data.caddress}</td> */}
                     <td>{doc.data.total}</td>
                     <td>
-                      {/* <Button
+                       <Button
                         variant="secondary"
                         className="edit"
-                       // onClick={(e) => getBookId(doc.id)}
+                         
                       >
                         Edit
                       </Button>
@@ -55,14 +57,15 @@ const  OrderCards = (props) => {
                        onClick={(e) => {delet(doc.id)}}
                       >
                         Delete
-                      </Button> */}
+                      </Button>  
                     </td>
                   </tr>
                 );
               })}
             </tbody>
-          </Table>
+          </Table></>
+        
     );
 }
 
-export default OrderCards;
+export default AdminPrepared;

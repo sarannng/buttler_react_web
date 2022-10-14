@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import {Link} from 'react-router-dom';
 function BrandExample() {
   return (
     <Container className='pt-2'>
@@ -12,8 +12,9 @@ function BrandExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#features">Big Screen</Nav.Link>
-            <Nav.Link href="#pricing">Admin</Nav.Link>
+            <Link to={'big-screen'} ><Nav.Link href="#features">Big Screen</Nav.Link></Link>
+            <Link to={'calling-orders'} ><Nav.Link href="#features">Calling Orders</Nav.Link></Link>
+            <Link to={'adh'} ><Nav.Link href="#features">Admin</Nav.Link></Link>
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

@@ -9,9 +9,6 @@ const AdminHome = ( ) =>{
         console.log("nav clickd");
     }
     return( 
- 
-       
-
         <div className="container">
             {/* <h1>This is Admin home</h1>
             <h3>It will have 2 buttons one for hte Bigscreen and other for calling the orders.</h3> */}
@@ -28,7 +25,7 @@ const AdminHome = ( ) =>{
 
                 
                 <div className="col-6">
-                    <Link to={'calling-orders'}><Button onClick={ vvavigator} type='button' className = 'btn btn-secondary'>Update Menu</Button></Link>
+                    <Link to={'calling-orders'}><Button onClick={vvavigator} type='button' className = 'btn btn-secondary'>Update Menu</Button></Link>
                 </div>
             </div>
 
