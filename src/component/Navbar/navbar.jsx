@@ -15,6 +15,8 @@ function BrandExample() {
             <Link to={'big-screen'} ><Nav.Link href="#features">Big Screen</Nav.Link></Link>
             <Link to={'calling-orders'} ><Nav.Link href="#features">Calling Orders</Nav.Link></Link>
             <Link to={'adh'} ><Nav.Link href="#features">Admin</Nav.Link></Link>
+            <Link to={'menu'} ><Nav.Link href="#features">Menu</Nav.Link></Link>
+            
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

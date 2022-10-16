@@ -8,7 +8,7 @@ const AdminPrepared = (props) =>{
     
     async function delet(id)  {
         console.log("document deleted with id  " + id);
-        await deleteDoc(doc(db, "order  ", id));
+        await deleteDoc(doc(db, "delivered", id));
 
       //   db.collection("test").doc(id).delete().then(() => {
       //     console.log("Document successfully deleted!");

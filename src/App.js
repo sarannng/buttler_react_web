@@ -12,6 +12,7 @@ import Notfound from './digi_components/notfound';
 import Bigscreen from './digi_components/big-screen';
 import CallingOrders from './digi_components/calling-orders';
 import Navbar from './component/Navbar/navbar';
+import Menu from './digi_components/menu';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
       
       
       <Route path= 'calling-orders'    element ={<CallingOrders/>}/>
+      <Route path= "menu" element = {<Menu/>}></Route>
       <Route path= '*'  element ={<Notfound/>}/>
  
     </Routes>

@@ -18,8 +18,9 @@ const  OrderCards = (props) => {
       // });
          console.log("document deleted with id  " + id);
         }
-    return (
-        <Table striped bordered hover size="sm">
+    return (<>
+    
+    <Table striped bordered hover size="sm">
             <thead>
               <tr>
                 <th>#</th>
@@ -62,6 +63,12 @@ const  OrderCards = (props) => {
               })}
             </tbody>
           </Table>
+              
+ 
+               
+    </>
+
+            
     );
 }
 
