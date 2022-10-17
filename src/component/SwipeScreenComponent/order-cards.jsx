@@ -4,7 +4,7 @@ import {Table, Button} from "react-bootstrap";
 import firebase_service from "../../Service/firebase_service";
 import {db} from  "../../Service/firebase-config";
 
-
+import  '../SwipeScreenComponent/order-cards.css';
 const  OrderCards = (props) => {
 
       async function delet(id)  {
@@ -38,10 +38,10 @@ const  OrderCards = (props) => {
                   <tr key={doc.id }>
                      <td>{index + 1}</td>
                     {/* <td>{doc.data.cid}</td> */}
-                    <td className="tile">{doc.data.cname}</td>
+                    <td className ="customer-name">{doc.data.cname}</td>
                     {/* <td>{doc.data.ordertime}</td> */}
                     {/* <td>{doc.data.caddress}</td> */}
-                    <td>{doc.data.total}</td>
+                    <td className="customer-token-neworders">{doc.data.total}</td>
                     <td>
                       {/* <Button
                         variant="secondary"
@@ -62,10 +62,12 @@ const  OrderCards = (props) => {
                 );
               })}
             </tbody>
-          </Table>
+          </Table>       
+
+
+          <div>
               
- 
-               
+          </div>     
     </>
 
             

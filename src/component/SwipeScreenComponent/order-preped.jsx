@@ -36,10 +36,10 @@ const OrderPrepd = (props) => {
                   <tr key={doc.id }>
                      <td>{index + 1}</td>
                     {/* <td>{doc.data.cid}</td> */}
-                    <td className="tile">{doc.data.cname}</td>
+                    <td className="customer-name">{doc.data.cname}</td>
                     {/* <td>{doc.data.ordertime}</td> */}
                     {/* <td>{doc.data.caddress}</td> */}
-                    <td>{doc.data.total}</td>
+                    <td className="customer-token">{doc.data.total}</td>
                     <td>
                       {/* <Button
                         variant="secondary"
