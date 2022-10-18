@@ -1,4 +1,4 @@
-import { deleteDoc, doc, collection} from "firebase/firestore";
+import { deleteDoc, doc, collection, updateDoc} from "firebase/firestore";
 import React from "react";
 import {Table, Button} from "react-bootstrap";
 import firebase_service from "../Service/firebase_service";
@@ -17,6 +17,30 @@ const AdminPrepared = (props) =>{
       // });
          console.log("document deleted with id  " + id);
         }
+
+    async function callingUser(id)  {
+      console.log("In calling user");
+      const getUser = doc(db, 'delivered', id);
+        await updateDoc(getUser, {
+         trigger : true, 
+        });
+
+        setTimeout(() => {
+          togglingbackfalse(id);
+        }, 1000);
+    }
+
+    
+    async function togglingbackfalse(id)  {
+      
+      const getUser = doc(db, 'delivered', id);
+        await updateDoc(getUser, {
+         trigger : false, 
+        });
+ 
+    }
+
+
     return (
 <>
     
@@ -25,8 +49,8 @@ const AdminPrepared = (props) =>{
             <thead>
               <tr>
                 <th>#</th>
-                <th>Customer id</th>
-                <th>Name</th>
+                <th>C Name</th>
+                <th>Order Time</th>
                 {/* <th>Order Time</th> */}
                 <th>Token</th>
                 {/* <th>Total</th> */}
@@ -42,7 +66,7 @@ const AdminPrepared = (props) =>{
                     <td className="tile">{doc.data.cname}</td>
                     <td>{doc.data.ordertime}</td>  
                      {/* <td>{doc.data.caddress}</td> */}
-                    <td>{doc.data.total}</td>
+                    <td>{doc.data.token}</td>
                     <td>
                        <Button
                         variant="secondary"
@@ -57,6 +81,14 @@ const AdminPrepared = (props) =>{
                        onClick={(e) => {delet(doc.id)}}
                       >
                         Delete
+                      </Button>  
+
+                      <Button
+                        variant="success"
+                        className="Call"
+                         onClick={(e) => {callingUser(doc.id)}}
+                      >
+                        Calling
                       </Button>  
                     </td>
                   </tr>

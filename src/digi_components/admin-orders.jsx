@@ -1,4 +1,4 @@
-import { deleteDoc, doc, collection, onSnapshot, getDoc, getDocs, getFirestore, addDoc} from "firebase/firestore";
+import {setDoc, deleteDoc, doc, collection, onSnapshot, getDoc, getDocs, getFirestore, addDoc, where, documentId} from "firebase/firestore";
 import React from "react";
 import {Table, Button} from "react-bootstrap";
 import firebase_service from "../Service/firebase_service";
@@ -12,11 +12,22 @@ const AdminOrder = (props) =>{
     console.log("shit")
     const fs = getFirestore();
        const data_to_move =  await getDoc( doc(fs, "order", id) )
-       console.log(data_to_move.data());
+       console.log(data_to_move.data()['cid']);
 
-      await addDoc(collection(db, "delivered"), data_to_move.data() );
+      const docid =  data_to_move.data()['cid'];
+  
+      try {
+        await setDoc(doc(db, "delivered", docid), data_to_move.data() );
+
+        // await db.collection("delivered").doc(docid).addDoc(data_to_move.data());
+      } catch (error) {
+        console.log(error);
+      }
+ 
   }
   async function delet(id)  {
+ 
+
         console.log("document deleted with id  " + id);
         await deleteDoc(doc(db, "order", id));
 
@@ -37,8 +48,8 @@ const AdminOrder = (props) =>{
             <thead>
               <tr>
                 <th>#</th>
-                <th>Customer id</th>
-                <th>Name</th>
+                <th>C Name</th>
+                <th>Order Time</th>
                 {/* <th>Order Time</th> */}
                 <th>Token</th>
                 {/* <th>Total</th> */}
@@ -54,7 +65,7 @@ const AdminOrder = (props) =>{
                     <td className="tile">{doc.data.cname}</td>
                     <td>{doc.data.ordertime}</td>  
                      {/* <td>{doc.data.caddress}</td> */}
-                    <td>{doc.data.total}</td>
+                    <td>{doc.data.token}</td>
                     <td>
                        <Button
                         variant="secondary"

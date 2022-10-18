@@ -28,7 +28,7 @@ const Menu = () =>{
     }
     return(
     <div className="container">
-            <button className="bg-primary" onClick={getMenu}  >Hit me</button>
+            <button className="bg-primary" onClick={getMenu}  >Hit  e</button>
     </div>
 );
 }
